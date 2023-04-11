@@ -41,12 +41,6 @@ io.on('connection', (socket:any) =>{
         socket.to(data.room).emit('receiveMessage',data);
     });
 
-socket.emit('getUsers',users);
-
-
-socket.on('sendRoomMessage',(data:any)=>{
-    socket.to(data.room).emit('receiveMessage',data)
-})
 
 });
 
