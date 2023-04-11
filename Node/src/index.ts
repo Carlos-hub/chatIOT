@@ -21,7 +21,7 @@ const io: SocketIOServer = require('socket.io')(httpServer, {
     }
 app.use(express.json());
 app.use(cors({
-    origin:['http://localhost:5173','https://chat-front-wjyy.vercel.app/']
+    origin:['*','http://localhost:5173','https://chat-front-wjyy.vercel.app/']
    }))
 
 io.listen( port | 4999);
