@@ -2,7 +2,10 @@ import express from "express";
 import dotenv from 'dotenv';
 import { createServer } from 'http';
 import { Server as SocketIOServer } from 'socket.io';
+
+require('dotenv').config();
 dotenv.config();
+const port:string | undefined | any = process.env.PORT_SOCKET
 const app = express();
 const httpServer = createServer(app);
 const io: SocketIOServer = require('socket.io')(httpServer, {
@@ -18,7 +21,7 @@ const io: SocketIOServer = require('socket.io')(httpServer, {
     }
 app.use(express.json())
 
-io.listen(4999);
+io.listen( port | 4999);
 let users:IUser[] =[];
 var room:object[]= [];
 
